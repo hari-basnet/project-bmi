@@ -14,25 +14,59 @@
 // console.log(leftSide);
 // leftSide.addEventListener('mousemove',runEvent);
 
+// function runEvent(e){
+
+// }
+
+const bigBox = document.querySelector('.left-side');
+
+const createUl = document.createElement('ul');
+
+document.body.main-section.left-side.append(createUl);
+console.log(createUl);
+
+const para = document.querySelectorAll('li');
+console.log(para);
+para[0].style.color = "orange";
+para[1].style.color = "lightgreen";
+para[2].style.color = "brown";
+para[3].style.color = "red";
+
+
 const calculate = document.getElementById('button');
-calculate.addEventListener('submit', calculateBMI);
+calculate.addEventListener('click', calculateBMI);
 
 
 function calculateBMI(){
-    
+
+
     let mass = document.getElementById('mass').value;
     let height = document.getElementById('height').value;
     let BMI = (mass / (height * height)).toFixed(2);
 
-    let result = document.querySelector('.result-section');
- 
-    //console.log(BMI);
+    let result = document.querySelector('.result-section p');
 
-    result.textContent = `your BMI is: ${BMI}`;
+    //let resultBox = document.querySelector('.result-section');
+    result.textContent = `Your BMI is: ${BMI}`;
 
-    if(BMI > 25){
-
-        result.style.backgroundColor = 'red';
+    if(BMI >= 30){
+        //use parentNode to select the parent 
+        result.parentNode.style.backgroundColor = 'red';
         document.querySelector('img').src = './assets/obese.jpg';
-    } 
+    }else if(BMI < 30 && BMI >=25){
+        result.parentNode.style.backgroundColor = 'orange';
+        document.querySelector('img').src = './assets/overweight.jpg';
+
+    }else if(BMI < 25 && BMI >= 18.5){
+        result.parentNode.style.backgroundColor = 'green';
+        document.querySelector('img').src = './assets/normal.jpg';
+
+    }else if(BMI < 18.5){
+        result.parentNode.style.backgroundColor = 'yellow';
+        document.querySelector('img').src = './assets/underweight.jpg';
+
+    }else{
+        result.textContent = 'Enter the valid value'
+    }
+    
 }

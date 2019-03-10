@@ -4,6 +4,10 @@
     box-sizing: border-box;
     /* border: 1px solid purple; */
 }
+body{
+
+    font-size: 16px;
+}
 .container{
     margin: 0 auto;
     max-width: 1000px;
@@ -65,7 +69,15 @@ input{
 
 
 .result-section{
-    height: 50px;
+    height: 80px;
     background: lightgreen;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-section p{
+    color: blue;
+    font-size: 160%;
 }
