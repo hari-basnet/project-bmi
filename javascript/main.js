@@ -18,25 +18,26 @@
 
 // }
 
-const bigBox = document.querySelector('.left-side');
+//const bigBox = document.querySelector('.left-side');
 
 //const createUl = document.createElement('ul');
 
 // document.body.main-section.left-side.append(createUl);
 // console.log(createUl);
 
+// make the color ot the list different 
 const para = document.querySelectorAll('li');
-console.log(para);
+//console.log(para);
 para[0].style.color = "orange";
 para[1].style.color = "lightgreen";
 para[2].style.color = "brown";
 para[3].style.color = "red";
 
-
+// selecting the button and adding eventlistner
 const calculate = document.getElementById('button');
 calculate.addEventListener('click', calculateBMI);
 
-
+// main function
 function calculateBMI(){
 
     
@@ -50,7 +51,8 @@ function calculateBMI(){
     // result.textContent = `Your BMI is: ${BMI}`;
     if(mass === ""  || height === ""  ){
     
-        result.textContent = `Some fields are empty`; 
+        result.textContent = `Some fields are empty`;
+        result.parentNode.style.backgroundColor = 'red'; 
 
     }else if(BMI >= 30){
         //use parentNode to select the parent 
@@ -59,7 +61,7 @@ function calculateBMI(){
         document.querySelector('img').src = './assets/obese.jpg';
     }else if(BMI < 30 && BMI >=25){
         result.textContent = `Your BMI is: ${BMI}, You are Overweight`;
-        result.parentNode.style.backgroundColor = 'orange';
+        result.parentNode.style.backgroundColor = '#A42929';
         document.querySelector('img').src = './assets/overweight.jpg';
         
     }else if(BMI < 25 && BMI >= 18.5){
@@ -69,7 +71,7 @@ function calculateBMI(){
         
     }else if(BMI < 18.5){
         result.textContent = `Your BMI is: ${BMI}, You are Underweight`;
-        result.parentNode.style.backgroundColor = 'yellow';
+        result.parentNode.style.backgroundColor = 'orange';
         document.querySelector('img').src = './assets/underweight.jpg';
 
     }else{
@@ -77,3 +79,5 @@ function calculateBMI(){
     }
     
 }
+
+// make a object to store the data
